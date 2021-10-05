@@ -3,7 +3,6 @@ var Schema = mongoose.Schema;
 var passportLocalMongoose = require("passport-local-mongoose");
 
 var User = new Schema({
-
   //username and password will store by liabry
   firstname: {
     type: String,
@@ -17,6 +16,7 @@ var User = new Schema({
     type: Boolean,
     default: false,
   },
+  facebookId: String,
 });
 
 User.plugin(passportLocalMongoose);
