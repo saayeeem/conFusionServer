@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 var authenticate = require("../authenticate");
-const Leaders = require("../models/Leaders");
+const Leaders = require("../models/leaders");
 const leaderRouter = express.Router();
 const cors = require("./cors");
 
@@ -14,7 +14,7 @@ leaderRouter
     res.sendStatus(200);
   })
   .get(cors.cors, (req, res, next) => {
-    Leaders.find({})
+    Leaders.find(req.query)
       .then(
         (Leaders) => {
           res.statusCode = 200;
