@@ -4,6 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var config = require("./config");
+const cors = require("cors");
 
 const url = config.mongoUrl;
 const mongoose = require("mongoose");
@@ -57,6 +58,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors());
 
 app.use(passport.initialize());
 app.use("/", indexRouter);
